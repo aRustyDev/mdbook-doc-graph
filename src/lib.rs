@@ -1,33 +1,31 @@
-//! MDBook plugin for DESCRIPTION.
+//! MDBook Doc-Graph Preprocessor
+//!
+//! Builds a comprehensive relationship graph of all documents by parsing
+//! frontmatter and inline references. Outputs structured data for visualization,
+//! querying, and use by other plugins.
 //!
 //! # Configuration
 //!
 //! Add to your `book.toml`:
 //!
 //! ```toml
-//! [preprocessor.PLUGIN_NAME]
-//! # Add configuration options here
+//! [preprocessor.doc-graph]
+//! command = "mdbook-doc-graph"
+//!
+//! [preprocessor.doc-graph.output]
+//! graph_file = "target/docs-graph.json"
+//! stats_file = "target/docs-stats.json"
+//! mermaid_file = "target/docs-graph.mmd"
 //! ```
-//!
-//! # Usage
-//!
-//! TODO: Add usage examples
 
 pub mod config;
 pub mod error;
+pub mod extractor;
+pub mod graph;
 pub mod preprocessor;
-
-/// Optional resolver module for pattern-based content transformation.
-///
-/// This module provides a reference parsing and resolution pattern useful for plugins
-/// that transform short references (e.g., `adr:0042`) into full paths or URLs.
-///
-/// To use: uncomment the re-exports below and add `regex = "1"` to your dependencies.
-pub mod resolver;
+pub mod scanner;
 
 pub use config::Config;
 pub use error::Error;
-pub use preprocessor::PluginPreprocessor;
-
-// Optional: Uncomment to re-export resolver types for external use
-// pub use resolver::{find_references, Reference, ReferenceResolver};
+pub use graph::{DocGraph, Edge, EdgeMetadata, EdgeType, Node, NodeMetadata, NodeType, Statistics};
+pub use preprocessor::DocGraphPreprocessor;

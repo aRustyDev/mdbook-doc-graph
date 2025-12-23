@@ -1,4 +1,4 @@
-//! MDBook plugin CLI entry point.
+//! MDBook doc-graph CLI entry point.
 //!
 //! This binary is called by mdbook during the build process.
 
@@ -7,13 +7,11 @@ use mdbook::preprocess::{CmdPreprocessor, Preprocessor};
 use std::io;
 use std::process;
 
-// Use the library crate - this crate name must match [lib].name in Cargo.toml
-// TODO: After renaming your plugin, update this import to match your crate name
-use mdbook_PLUGIN_NAME_UNDERSCORE::PluginPreprocessor;
+use mdbook_doc_graph::DocGraphPreprocessor;
 
 #[derive(Parser)]
-#[command(name = "mdbook-PLUGIN_NAME")]
-#[command(about = "MDBook plugin for DESCRIPTION")]
+#[command(name = "mdbook-doc-graph")]
+#[command(about = "MDBook preprocessor to build document relationship graphs")]
 #[command(version)]
 struct Cli {
     #[command(subcommand)]
@@ -36,7 +34,7 @@ fn main() {
 
     match cli.command {
         Some(Commands::Supports { renderer }) => {
-            let preprocessor = PluginPreprocessor::new();
+            let preprocessor = DocGraphPreprocessor::new();
             if preprocessor.supports_renderer(&renderer) {
                 process::exit(0);
             } else {
@@ -56,7 +54,7 @@ fn main() {
 fn run_preprocessor() -> Result<(), Box<dyn std::error::Error>> {
     let (ctx, book) = CmdPreprocessor::parse_input(io::stdin())?;
 
-    let preprocessor = PluginPreprocessor::new();
+    let preprocessor = DocGraphPreprocessor::new();
 
     if ctx.mdbook_version != mdbook::MDBOOK_VERSION {
         eprintln!(
