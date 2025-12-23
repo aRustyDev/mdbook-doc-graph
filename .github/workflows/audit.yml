@@ -1,0 +1,73 @@
+# Security Audit
+#
+# Checks for security vulnerabilities in dependencies.
+# Runs daily and on dependency changes.
+
+name: Security Audit
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Daily at midnight UTC
+  push:
+    paths:
+      - '**/Cargo.toml'
+      - '**/Cargo.lock'
+  pull_request:
+    paths:
+      - '**/Cargo.toml'
+      - '**/Cargo.lock'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  audit:
+    name: Audit
+    # Skip in template repo
+    if: github.repository != 'aRustyDev/tmpl-mdbook-plugin'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install cargo-audit
+        uses: taiki-e/install-action@cargo-audit
+
+      - name: Run security audit
+        run: cargo audit
+
+  # Dependency license check (optional)
+  licenses:
+    name: License Check
+    # Skip in template repo
+    if: github.repository != 'aRustyDev/tmpl-mdbook-plugin'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install cargo-deny
+        uses: taiki-e/install-action@cargo-deny
+
+      - name: Check licenses
+        run: cargo deny check licenses
+        continue-on-error: true  # Remove this line once deny.toml is configured
+
+  # Unused dependencies check
+  unused:
+    name: Unused Dependencies
+    # Skip in template repo
+    if: github.repository != 'aRustyDev/tmpl-mdbook-plugin'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Rust nightly
+        uses: dtolnay/rust-toolchain@nightly
+
+      - name: Install cargo-udeps
+        uses: taiki-e/install-action@cargo-udeps
+
+      - name: Check for unused dependencies
+        run: cargo +nightly udeps --all-targets
+        continue-on-error: true  # Advisory only

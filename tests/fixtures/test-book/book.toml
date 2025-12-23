@@ -1,0 +1,13 @@
+[book]
+title = "Test Book"
+authors = ["Test Author"]
+language = "en"
+
+[preprocessor.PLUGIN_NAME]
+# TODO: Add test configuration here
+# Example:
+# option1 = "test-value"
+# option2 = true
+
+[build]
+build-dir = "book"

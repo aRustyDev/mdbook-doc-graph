@@ -1,0 +1,81 @@
+[book]
+authors = ["aRustyDev"]
+language = "en"
+src = "src"
+title = "mdbook-plugin"
+
+# https://github.com/tfpk/mdbook-keeper
+# https://benfalk.github.io/mdbook-journal/
+# https://github.com/phoenixr-codes/mdbook-inline-highlighting
+# https://github.com/daviddrysdale/mdbook-indexing
+# https://github.com/ankitrgadiya/mdbook-hide/
+# https://github.com/CompEng0001/mdbook-gitinfo
+# https://github.com/VectorInstitute/mdbook-github-authors
+# https://github.com/poliorcetics/mdbook-force-relative-links
+# https://github.com/Roms1383/mdbook-codeblocks
+# https://github.com/benfalk/anchors-aweigh
+# https://github.com/lambdalisue/rs-mdbook-alerts
+# https://github.com/tommilligan/mdbook-admonish
+# https://github.com/badboy/mdbook-mermaid
+# https://github.com/RealAtix/mdbook-private
+# https://github.com/slowsage/mdbook-pagetoc
+# https://github.com/sgoudham/mdbook-template
+# https://github.com/howlowck/mdbook-selfpath
+# https://github.com/badboy/mdbook-toc
+# https://github.com/dvogt23/mdbook-yml-header
+# https://github.com/wisbery/yapp
+# https://github.com/phoenixr-codes/mdbook-whichlang/tree/master
+# https://mdbook-plugins.rustforweb.org/tabs.html
+# https://mdbook-plugins.rustforweb.org/trunk.html
+# https://tonywu6.github.io/mdbookkit/rustdoc-link/index.html
+# https://github.com/marketplace/actions/mdbook-action
+# https://github.com/mdzk-rs/mdzk
+# https://github.com/peaceiris/actions-mdbook
+# https://github.com/Michael-F-Bryan/mdbook-linkcheck
+# https://github.com/danieleades/mdbook-d2
+# https://github.com/badboy/mdbook-last-changed
+# https://github.com/badboy/mdbook-open-on-gh
+# https://github.com/rxdn/mdbook-sitemap-generator
+# https://github.com/blyxyas/mdbook-emojicodes
+# https://github.com/cococolanosugar/mdbook-chart
+# https://github.com/ANSSI-FR/mdbook-checklist
+# https://github.com/nx10/mdbook-langtabs
+# https://github.com/caukub/mdbook-hints
+# https://github.com/smallkirby/mdbook-codename
+# https://github.com/xfbs/mdbook-leptos
+# https://github.com/erhant/mdbook-template
+# https://github.com/SRTigers98/mdbook-mindmap
+# https://github.com/joshrotenberg/mdbook-lint
+
+# === Backends ===
+# https://github.com/RossMurr4y/mdbook-docx
+# mdbook-pdf
+# mdbook-epub
+# mdbook-tex
+# mdbook-man
+# mdbook-asciidoc
+# mdbook-obsidian
+# https://github.com/sspaeti/mdbook-sspaeti
+# https://github.com/adisbladis/mdbook-nixdoc
+# https://github.com/higumachan/mdbook-llms-txt-tools
+# https://github.com/aschaeffer/mdbook-preprocessor-graphql-playground
+# https://github.com/E79180/mdbook-mergecells
+# https://github.com/jeffersonroth/mdbook-metadata
+# https://github.com/TheSignPainter98/mdbook-diataxis
+# https://github.com/BrynCooke/mdbook-include-rs
+# https://github.com/jasonrm/mdbook-nix-eval
+# https://github.com/blazood/mdbook-regex-replacer
+# https://github.com/varjolintu/mdBook-bujinkan-template
+# https://github.com/sspaeti/mdbook-frontmatter-reader
+# https://github.com/Mura-Mi/mdbook-chapter-number
+# https://github.com/poliorcetics/mdbook-force-relative-links
+# https://github.com/brandonphelps/mdbook-drawio
+# https://github.com/nnarain/mdbook-file-search
+# https://github.com/SichangHe/mdbook-katex2
+# https://github.com/conradludgate/mdbook-puml
+# https://github.com/sevki/mdbook-rustdoc
+# https://github.com/daniel-noland/mdbook-citeproc
+# https://github.com/jeffersonroth/mdbook-tags
+
+# === Science Crap ===
+# https://github.com/yannickseurin/mdbook-numeq
