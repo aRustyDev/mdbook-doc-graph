@@ -1,0 +1,46 @@
+# MDBook Plugin Template - Cargo.toml
+#
+# INSTRUCTIONS: Replace all occurrences of:
+#   - PLUGIN_NAME with your plugin name (e.g., "frontmatter")
+#   - PLUGIN_NAME_UNDERSCORE with underscored version (e.g., "frontmatter")
+#   - DESCRIPTION with your plugin description
+#
+# Example: For "mdbook-json-table":
+#   - PLUGIN_NAME = "json-table"
+#   - PLUGIN_NAME_UNDERSCORE = "json_table"
+
+[package]
+name = "mdbook-PLUGIN_NAME"
+version = "0.1.0"
+edition = "2021"
+authors = ["aRustyDev <36318507+aRustyDev@users.noreply.github.com>"]
+description = "MDBook plugin for DESCRIPTION"
+license = "GPL-3.0-or-later"
+repository = "https://github.com/aRustyDev/mdbook-PLUGIN_NAME"
+keywords = ["mdbook", "preprocessor", "markdown"]
+categories = ["command-line-utilities", "text-processing"]
+
+[dependencies]
+mdbook = "0.4"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+clap = { version = "4.0", features = ["derive"] }
+anyhow = "1.0"
+thiserror = "1.0"
+log = "0.4"
+env_logger = "0.10"
+# IMPORTANT: Must use toml 0.5 to match mdbook's version!
+# Using 0.8+ will cause type conflicts with mdbook's Table type.
+toml = "0.5"
+
+[dev-dependencies]
+tempfile = "3.0"
+pretty_assertions = "1.0"
+
+[[bin]]
+name = "mdbook-PLUGIN_NAME"
+path = "src/main.rs"
+
+[lib]
+name = "mdbook_PLUGIN_NAME_UNDERSCORE"
+path = "src/lib.rs"
